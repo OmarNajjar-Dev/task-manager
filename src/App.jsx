@@ -8,6 +8,7 @@ const Tasks = lazy(() => import("./pages/Tasks"));
 const Products = lazy(() => import("./pages/Products"));
 const Favorites = lazy(() => import("./pages/Favorites"));
 const Cart = lazy(() => import("./pages/Cart"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/favorites" element={<Favorites />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Suspense>
