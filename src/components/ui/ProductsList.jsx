@@ -1,9 +1,9 @@
 import Product from "./Product";
 
-export default function Products({products}) {
+export default function Products({ products }) {
   return (
     <>
-      {products.map((p) => (
+      {products?.map((p) => (
         <Product
           key={p.id}
           id={p.id}
