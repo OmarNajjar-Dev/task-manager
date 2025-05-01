@@ -4,7 +4,7 @@ import IconBubble from "./IconBubble";
 import { CartContext } from "../../contexts/CartContext";
 import { FavoritesContext } from "../../contexts/FavoritesContext";
 
-export default function Product({ id, img, title, description, price }) {
+export default function Product({ id, image, title, description, price }) {
   // Access favorites context
   const { favorites, setFavorites } = useContext(FavoritesContext);
   const { cart, setCart } = useContext(CartContext);
@@ -18,7 +18,7 @@ export default function Product({ id, img, title, description, price }) {
     if (isFavorited) {
       setFavorites(favorites.filter((item) => item.id !== id));
     } else {
-      setFavorites([...favorites, { id, img, title, description, price }]);
+      setFavorites([...favorites, { id, image, title, description, price }]);
     }
   };
 
@@ -26,7 +26,7 @@ export default function Product({ id, img, title, description, price }) {
     if (isInCart) {
       setCart(cart.filter((item) => item.id !== id));
     } else {
-      setCart([...cart, { id, img, title, description, price }]);
+      setCart([...cart, { id, image, title, description, price }]);
     }
   };
 
@@ -34,7 +34,7 @@ export default function Product({ id, img, title, description, price }) {
     <div className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
       <div className="relative w-full pt-[100%]">
         <img
-          src={img}
+          src={image}
           alt={title}
           className="absolute inset-0 w-full h-full object-contain p-4"
         />
@@ -45,14 +45,14 @@ export default function Product({ id, img, title, description, price }) {
           {title}
         </h2>
 
-        <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-1">
+        <p className="text-gray-600 text-sm mb-4 line-clamp-3">
           {description}
         </p>
 
         <div className="flex items-center justify-between">
           <span className="text-xl font-bold text-gray-900">${price}</span>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 ">
             <IconBubble
               Icon={Heart}
               onClick={handleFavorite}
