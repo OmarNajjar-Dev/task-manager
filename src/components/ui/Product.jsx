@@ -30,13 +30,6 @@ export default function Product({ id, img, title, description, price }) {
     }
   };
 
-  // Colors based on state
-  const heartBg = isFavorited ? "red-100" : "gray-200";
-  const heartIcon = isFavorited ? "text-red-500" : "text-gray-500";
-
-  const cartBg = isInCart ? "blue-100" : "gray-200";
-  const cartIcon = isInCart ? "text-blue-500" : "text-gray-500";
-
   return (
     <div className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col">
       <div className="relative w-full pt-[100%]">
@@ -61,17 +54,21 @@ export default function Product({ id, img, title, description, price }) {
 
           <div className="flex gap-2">
             <IconBubble
-              icon={<Heart className="w-5 h-5" />}
+              Icon={Heart}
               onClick={handleFavorite}
-              bgColor={heartBg}
-              iconColor={heartIcon}
+              bgColor={isFavorited ? "bg-red-100" : "bg-gray-100"}
+              iconColor={isFavorited ? "text-red-600" : "text-gray-600"}
+              hoverBg="hover:bg-red-200"
+              hoverColor="hover:text-red-600"
             />
 
             <IconBubble
-              icon={<ShoppingCart className="w-5 h-5" />}
+              Icon={ShoppingCart}
               onClick={handleCart}
-              bgColor={cartBg}
-              iconColor={cartIcon}
+              bgColor={isInCart ? "bg-blue-100" : "bg-gray-100"}
+              iconColor={isInCart ? "text-blue-600" : "text-gray-600"}
+              hoverBg="hover:bg-blue-200"
+              hoverColor="hover:text-blue-600"
             />
           </div>
         </div>

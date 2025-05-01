@@ -9,7 +9,7 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useLocalStorage("cart", []);
+  const [cart, setCart] = useLocalStorage("cartItem", []);
 
   return (
     <CartContext.Provider value={{ cart, setCart }}>
